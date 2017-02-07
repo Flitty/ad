@@ -12,8 +12,8 @@
         @endif
 
         <div class="col-lg-7">
-
-            <form method="post" action="{{ action('AdController@store') }}">
+            <form method="post" action="{{ action('AdController@update', ['id' => $ad['id']]) }}">
+                <input type="hidden" name="_method" value="put" >
                 <input type="hidden" value="{{ $ad['id'] }}" >
                 <input type="text" name="title" placeholder="Название" required value="{{ $ad['title'] }}" style=" margin-bottom: 10px">
                 <br>
@@ -21,7 +21,6 @@
                 <br>
                 <input type="submit" value="Изменить">
             </form>
-
         </div>
     </div>
 @stop

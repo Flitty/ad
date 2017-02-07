@@ -38,10 +38,7 @@
             </div>
         @endforeach
 
-
-
-                {{  $ads->render() }}
-
+            {{  $ads->render() }}
     </div>
 </div>
 @stop

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
@@ -32,6 +33,8 @@ class AuthController extends Controller
         if(Auth::user()) {
             return redirect('/ad');
         }
+        Session::put('notification', 'Вы ввели неверный пароль');
+        return redirect()->back();
     }
 
     public function logout() {

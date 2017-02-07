@@ -25,6 +25,7 @@
 */
 
 Route::group(['middleware' => ['web']], function () {
+
     Route::get('/', 'AuthController@index');
     Route::post('/', 'AuthController@auth');
 

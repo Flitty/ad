@@ -8,7 +8,6 @@
 
         @if(session()->has('notification'))
             <h5 style="margin-left: 20px; color: green;">{{ session()->get('notification') }}</h5>
-            {{ session()->forget('notification') }}
         @endif
 
         <div class="col-lg-7">
