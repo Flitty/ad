@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +25,13 @@ Route::get('/', function () {
 */
 
 Route::group(['middleware' => ['web']], function () {
-    Route::get('/home', 'AuthController@index');
+    Route::get('/', 'AuthController@index');
+    Route::post('/', 'AuthController@auth');
+
+    Route::group(['middleware' => 'auth'], function() {
+        Route::resource('/ad', 'AdController');
+        Route::get('logout', 'AuthController@logout');
+        Route::get('/ad/delete/{id}', 'AdController@destroy');
+    });
+
 });
